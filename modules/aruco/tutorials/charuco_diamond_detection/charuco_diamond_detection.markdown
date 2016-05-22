@@ -58,7 +58,7 @@ The image produced will be:
 
 ![Diamond marker](images/diamondmarker.png)
 
-A full working example is included in the ```create_diamond.cpp``` inside the module samples folder.
+A full working example is included in the ```create_diamond.cpp``` inside the module samples folder.\\
 Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
 ``` c++
     "_path_/mydiamond.png" -sl=200 -ml=120 -d=10 -ids=45,68,28,74
@@ -117,7 +117,7 @@ The result is the same that the one produced by ```drawDetectedMarkers()```, but
 
 ![Detected diamond markers](images/detecteddiamonds.png)
 
-A full working example is included in the ```detect_diamonds.cpp``` inside the module samples folder.
+A full working example is included in the ```detect_diamonds.cpp``` inside the module samples folder.\\
 Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
 ``` c++
     -c="_path_/calib.txt" -dp="_path_/detector_params.yml" -sl=0.04 -ml=0.02 -d=10
@@ -164,7 +164,7 @@ Sample video:
 <iframe width="420" height="315" src="https://www.youtube.com/embed/OqKpBnglH7k" frameborder="0" allowfullscreen></iframe>
 @endhtmlonly
 
-A full working example is included in the ```detect_diamonds.cpp``` inside the module samples folder.
+A full working example is included in the ```detect_diamonds.cpp``` inside the module samples folder.\\
 Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
 ``` c++
     -c="_output path_/calib.txt" -dp="_path_/detector_params.yml" -sl=0.04 -ml=0.02 -d=10
