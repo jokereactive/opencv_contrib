@@ -153,7 +153,8 @@ The output image will be something like this:
 
 ![](images/board.jpg)
 
-A full working example of board creation is included in the ```create_board.cpp``` inside the module samples folder.\\
+A full working example of board creation is included in the ```create_board.cpp``` inside the module samples folder.
+
 Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
 ``` c++
     "_output path_/aboard.png" -w=5 -h=7 -l=100 -s=10 -d=10
@@ -206,7 +207,8 @@ Sample video:
 <iframe width="420" height="315" src="https://www.youtube.com/embed/Q1HlJEjW_j0" frameborder="0" allowfullscreen></iframe>
 @endhtmlonly
 
-A full working example is included in the ```detect_board.cpp``` inside the module samples folder.\\
+A full working example is included in the ```detect_board.cpp``` inside the module samples folder.
+
 Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
 ``` c++
     -c="_path_"/calib.txt" "_path_/aboard.png" -w=5 -h=7 -l=100 -s=10 -d=10 
