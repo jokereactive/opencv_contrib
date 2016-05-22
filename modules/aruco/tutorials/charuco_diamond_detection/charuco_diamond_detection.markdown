@@ -50,6 +50,12 @@ For instance:
     cv::aruco::drawCharucoDiamond(dictionary, cv::Vec4i(45,68,28,74), 200, 120, markerImage);
 ```
 
+Note: The samples now take input via commandline via the [OpenCV Commandline Parser](). For this file the example parameters will look like 
+``` Command Line Argument
+    
+    
+```
+
 This will create a diamond marker image with a square size of 200 pixels and a marker size of 120 pixels.
 The marker ids are given in the second parameter as a ```Vec4i``` object. The order of the marker ids
 in the diamond layout are the same as in a standard ChArUco board, i.e. top, left, right and bottom.
