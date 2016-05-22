@@ -101,8 +101,11 @@ The generated image is:
 
 ![Generated marker](images/marker23.jpg)
 
-A full working example is included in the ```create_marker.cpp``` inside the module samples folder.
-
+A full working example is included in the ```create_marker.cpp``` inside the module samples folder.\\
+Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
+``` c++
+    "/Users/Sarthak/Dropbox/OpenCV_GSoC/marker.png" -d=10 -id=1
+```
 
 Marker Detection
 ------
@@ -224,7 +227,11 @@ camera:
 Note that some of the optional parameters have been omitted, like the detection parameter object or the
 output vector of rejected candidates.
 
-A full working example is included in the ```detect_markers.cpp``` inside the module samples folder.
+A full working example is included in the ```detect_markers.cpp``` inside the module samples folder.\\
+Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
+``` c++
+    -c="_path_/calib.txt" -d=10 
+```
 
 
 
@@ -329,7 +336,12 @@ Sample video:
 <iframe width="420" height="315" src="https://www.youtube.com/embed/IsXWrcB_Hvs" frameborder="0" allowfullscreen></iframe>
 @endhtmlonly
 
-A full working example is included in the ```detect_markers.cpp``` inside the module samples folder.
+A full working example is included in the ```detect_markers.cpp``` inside the module samples folder.\\
+Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
+``` c++
+    -c="_path_/calib.txt" -d=10 
+```
+
 
 
 Selecting a dictionary
