@@ -50,12 +50,6 @@ For instance:
     cv::aruco::drawCharucoDiamond(dictionary, cv::Vec4i(45,68,28,74), 200, 120, markerImage);
 ```
 
-Note: The samples now take input via commandline via the [OpenCV Commandline Parser](). For this file the example parameters will look like 
-``` Command Line Argument
-    
-    
-```
-
 This will create a diamond marker image with a square size of 200 pixels and a marker size of 120 pixels.
 The marker ids are given in the second parameter as a ```Vec4i``` object. The order of the marker ids
 in the diamond layout are the same as in a standard ChArUco board, i.e. top, left, right and bottom.
@@ -65,7 +59,10 @@ The image produced will be:
 ![Diamond marker](images/diamondmarker.png)
 
 A full working example is included in the ```create_diamond.cpp``` inside the module samples folder.
-
+Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
+``` c++
+    "_path_/mydiamond.png" -sl=200 -ml=120 -d=10 -ids=45,68,28,74
+```
 
 ChArUco Diamond Detection
 ------
@@ -121,7 +118,10 @@ The result is the same that the one produced by ```drawDetectedMarkers()```, but
 ![Detected diamond markers](images/detecteddiamonds.png)
 
 A full working example is included in the ```detect_diamonds.cpp``` inside the module samples folder.
-
+Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
+``` c++
+    -c="_path_/calib.txt" -dp="_path_/detector_params.yml" -sl=0.04 -ml=0.02 -d=10
+```
 
 ChArUco Diamond Pose Estimation
 ------
@@ -165,3 +165,8 @@ Sample video:
 @endhtmlonly
 
 A full working example is included in the ```detect_diamonds.cpp``` inside the module samples folder.
+Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
+``` c++
+    -c="_output path_/calib.txt" -dp="_path_/detector_params.yml" -sl=0.04 -ml=0.02 -d=10
+```
+
