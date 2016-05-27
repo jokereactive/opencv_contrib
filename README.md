@@ -13,8 +13,7 @@ provides production quality support for this module.
 
 ### How to build OpenCV with extra modules
 
-You can build OpenCV, so it will include the modules from this repository. Contrib 
-modules are under constant development and it is recommended to use them alongside the master branch or latest releases of OpenCV.
+You can build OpenCV, so it will include the modules from this repository. Contrib modules are under constant development and it is recommended to use them alongside the master branch or latest releases of OpenCV.
 
 Here is the CMake command for you:
 
