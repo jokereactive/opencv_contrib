@@ -61,7 +61,7 @@ Finally, the ```calibrationFlags``` parameter determines some of the options for
 
 A full working example is included in the ```calibrate_camera_charuco.cpp``` inside the module samples folder.
 
-Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
+Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like
 ``` c++
     _output path_" -dp="_path_/detector_params.yml" -w=5 -h=7 -sl=0.04 -ml=0.02 -d=10
 ```
@@ -106,8 +106,7 @@ any ```Board``` object.
 
 A full working example is included in the ```calibrate_camera.cpp``` inside the module samples folder.
 
-Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like 
+Note: The samples now take input via commandline via the [OpenCV Commandline Parser](http://docs.opencv.org/trunk/d0/d2e/classcv_1_1CommandLineParser.html#gsc.tab=0). For this file the example parameters will look like
 ``` c++
     "_path_/calib.txt" -w=5 -h=7 -l=100 -s=10 -d=10
 ```
-
