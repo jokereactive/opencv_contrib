@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/Sarthak/Dropbox/OpenCV_GSoC/opencv_contrib/samples/android/aruco/Studio/pose_estimation/opencv_java/src/main/shaders"/></dataSet><dataSet config="release"><source path="/Users/Sarthak/Dropbox/OpenCV_GSoC/opencv_contrib/samples/android/aruco/Studio/pose_estimation/opencv_java/src/release/shaders"/></dataSet></merger>
