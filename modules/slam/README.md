@@ -4,6 +4,12 @@ Simultaneous Location and Mapping
 This is a library that allows implementation and use of various slam algorithms in a modular fashion. All components of a
  SLAM system are available independently. There are two complete SLAM systems available for use:
 
+**Overview of the Structure**
+
+// The UML will be updated along with other components being added.
+
+![Model](./snap.png)
+
 **ChAruCo Marker Based SLAM**
 
 This is a markerbased SLAM based on ChAruCo Diamonds, essentially meant as a sample SLAM to help in the structuring of this module.
