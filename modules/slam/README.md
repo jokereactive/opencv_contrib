@@ -8,9 +8,10 @@ This is a library that allows implementation and use of various slam algorithms 
 
 // The UML will be updated along with other components being added.
 
-![Model](./snap.png)
+![Model](./model.png)
 
 **ChAruCo Marker Based SLAM**
+![Model](./snap.png)
 
 This is a markerbased SLAM based on ChAruCo Diamonds, essentially meant as a sample SLAM to help in the structuring of this module.
 
