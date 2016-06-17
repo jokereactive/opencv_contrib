@@ -57,13 +57,8 @@ const char* about =
 const char* keys  =
         "{w        |       | Number of squares in X direction }"
         "{h        |       | Number of squares in Y direction }"
-<<<<<<< HEAD
         "{sl       |       | Square side length (in meters) }"
         "{ml       |       | Marker side length (in meters) }"
-=======
-        "{sl       |       | Square side length (in pixels) }"
-        "{ml       |       | Marker side length (in pixels) }"
->>>>>>> 14f16b1d75821c5aa2f66d8b207ce64a0f36a1ce
         "{d        |       | dictionary: DICT_4X4_50=0, DICT_4X4_100=1, DICT_4X4_250=2,"
         "DICT_4X4_1000=3, DICT_5X5_50=4, DICT_5X5_100=5, DICT_5X5_250=6, DICT_5X5_1000=7, "
         "DICT_6X6_50=8, DICT_6X6_100=9, DICT_6X6_250=10, DICT_6X6_1000=11, DICT_7X7_50=12,"
