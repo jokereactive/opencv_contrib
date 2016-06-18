@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/demo_slam.dir/samples/demo_slam.cpp.o  -o demo_slam -rdynamic libopencv_slam.a 

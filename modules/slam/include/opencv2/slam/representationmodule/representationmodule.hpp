@@ -36,8 +36,47 @@ or tort (including negligence or otherwise) arising in any way out of
 the use of this software, even if advised of the possibility of such damage.
 */
 
-#include "opencv2/slam.hpp"
+#ifndef _OPENCV_REPRESENTATIONMODULE_HPP_
+#define _OPENCV_REPRESENTATIONMODULE_HPP_
+
+//General
 #include <opencv2/core.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/monocameradataset.hpp>
+#include <opencv2/calib3d.hpp>
+#include <opencv2/highgui.hpp>
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <cstddef>
+
+//Slam Related
+#include <opencv2/slam/representationmodule/keyframegraphrepresenter.hpp>
+#include <opencv2/slam/representationmodule/representer.hpp>
+#include <opencv2/slam/utilities/logger.hpp>
+
+namespace cv {
+  namespace slam {
+    /**
+     * @brief Representation Module
+     * Specific class for Representation Segment of the SLAM System. 
+     * This class is a factory class and can be used to generate representers
+     */
+    class CV_EXPORTS_W RepresentationModule {
+      public:
+        /**
+         * @brief Create a Representer object
+         *
+         * @param representerType type of representer to be created
+         * @return the output representer object
+         *
+         * This functions creates a Representer Object given the Representer Type. Example - Key Frame Graph, etc.
+         */
+        Representer* createRepresenter(int representerType);
+    };
+  }
+}
+
+
+#endif
+
+
 

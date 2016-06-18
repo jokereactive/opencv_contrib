@@ -1,0 +1,10 @@
+%YAML:1.0
+input_module: "MONO"
+tracking_module: "CHARUCO"
+mapping_module: "CHARUCO"
+visualisation_module: "VIS"
+representation_module: "KEYFRAMEGRAPH"
+N: 5
+camera_path: "/home/sarthak/GSOC/opencv_contrib/modules/slam/cameras/macbook_monocamera";
+dataset_path: "/home/sarthak/GSOC/opencv_contrib/modules/slam/datasets/dataset_macbook_monocamera"
+

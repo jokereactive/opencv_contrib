@@ -1,0 +1,4 @@
+%YAML:1.0
+camera_type: "MONO"
+calib_path: "/home/sarthak/GSOC/opencv_contrib/modules/slam/datasets/dataset_macbook_monocamera/calib.txt"
+images_path: "/home/sarthak/GSOC/opencv_contrib/modules/slam/datasets/dataset_macbook_monocamera/images.txt"

@@ -36,47 +36,48 @@ or tort (including negligence or otherwise) arising in any way out of
 the use of this software, even if advised of the possibility of such damage.
 */
 
-#ifndef __OPENCV_INPUTMODULE_HPP__
-#define __OPENCV_INPUTMODULE_HPP__
-
-#include <opencv2/core.hpp>
-#include <vector>
-#include <string>
-#include <opencv2/inputmodule/inputmodule.hpp>
+#include <opencv2/slam/inputmodule/inputmodule.hpp>
 
 
 namespace cv {
   namespace slam {
+    using namespace std;
 
-    Camera InputModule::createCamera(string cameraConfigPath){
-        string cameraType;
+    enum CAMERA { MONO };
+
+    Camera* InputModule::createCamera(string cameraConfigPath){
+        int cameraType;
+        string cameraPath;
         FileStorage fs(cameraConfigPath, FileStorage::READ);
         if(!fs.isOpened())
-            return null;
+            return NULL;
         fs["camera_type"] >> cameraType;
+        fs["camera_path"] >> cameraPath;
+        cameraPath=cameraPath+"/config.txt";
         switch(cameraType){
-          case "MONO":
-                return new MonoCamera()
+          case MONO:
+                return new MonoCamera(cameraPath);
           default:
-                return null;
+                return NULL;
         }
     }
 
-    Dataset InputModule::createDataset(string datasetConfigPath){
-        string cameraType;
+    Dataset* InputModule::createDataset(string datasetConfigPath){
+        int cameraType;
+        string datasetPath;
         FileStorage fs(datasetConfigPath, FileStorage::READ);
         if(!fs.isOpened())
-            return null;
+            return NULL;
         fs["camera_type"] >> cameraType;
+        fs["dataset_path"] >> datasetPath;
+        datasetPath=datasetPath+"/config.txt";
         switch(cameraType){
-          case "MONO":
-                return new MonoCameraDataset()
+          case MONO:
+                return new MonoCameraDataset(datasetPath);
           default:
-                return null;
+                return NULL;
         }
     }
   }
 }
 
-
-#endif

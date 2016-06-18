@@ -42,6 +42,7 @@ the use of this software, even if advised of the possibility of such damage.
 #include <opencv2/core.hpp>
 #include <vector>
 #include <string>
+#include <opencv2/slam/utilities/logger.hpp>
 
 
 namespace cv {
@@ -51,22 +52,22 @@ namespace cv {
      * This is an abstract class to create various implementations of datasets this SLAM system may support.
      */
     class CV_EXPORTS_W Dataset {
-      private:
-        string configPath;
+      protected:
+        std::string configPath;
         bool ready;
 
       public:
-        string getConfigPath(){
+        std::string getConfigPath(){
           return configPath;
         }
 
-        void setConfigPath(string configPath){
+        void setConfigPath(std::string configPath){
           this->configPath=configPath;
         }
 
-        virtual bool initialize(string configPath)=0;
+        virtual bool initialize(std::string configPath)=0;
 
-        Dataset(string configPath){
+        Dataset(std::string configPath){
           this->setConfigPath(configPath);
           this->ready=initialize(this->getConfigPath());
         }
@@ -78,6 +79,8 @@ namespace cv {
         Dataset(){
           this->ready=false;
         }
-    }
+    };
   }
 }
+
+#endif

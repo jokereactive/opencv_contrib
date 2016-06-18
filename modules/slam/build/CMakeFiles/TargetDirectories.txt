@@ -1,0 +1,4 @@
+/home/sarthak/GSOC/opencv_contrib/modules/slam/build/CMakeFiles/edit_cache.dir
+/home/sarthak/GSOC/opencv_contrib/modules/slam/build/CMakeFiles/rebuild_cache.dir
+/home/sarthak/GSOC/opencv_contrib/modules/slam/build/CMakeFiles/opencv_slam.dir
+/home/sarthak/GSOC/opencv_contrib/modules/slam/build/CMakeFiles/demo_slam.dir

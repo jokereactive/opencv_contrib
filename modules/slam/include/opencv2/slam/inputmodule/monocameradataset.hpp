@@ -39,10 +39,18 @@ the use of this software, even if advised of the possibility of such damage.
 #ifndef __OPENCV_MONOCAMERADATASET_HPP__
 #define __OPENCV_MONOCAMERADATASET_HPP__
 
+//General
 #include <opencv2/core.hpp>
+#include <opencv2/calib3d.hpp>
+#include <opencv2/highgui.hpp>
 #include <vector>
-#include <string>
-#include <opencv2/inputmodule/monocameradataset.hpp>
+#include <iostream>
+#include <fstream>
+#include <cstddef>
+
+//Slam Related
+#include <opencv2/slam/inputmodule/dataset.hpp>
+#include <opencv2/slam/utilities/logger.hpp>
 
 
 namespace cv {
@@ -51,18 +59,21 @@ namespace cv {
      * @brief Camera
      * This is an abstract class to create various implementations of cameras this SLAM system may support
      */
-    class CV_EXPORTS_W MonoCameraDataset: public Dataset {
+    class Dataset;
+
+    class MonoCameraDataset: public Dataset {
       private:
         Mat camMatrix;
         Mat distCoeffs;
         Mat currentImage;
-        std::vector<string> imagePaths;
-        std::vector::iterator<string> imagePathsIterator;
+        std::vector<std::string> imagePaths;
+        std::vector<std::string>::iterator imagePathsIterator;
 
       public:
-        bool initialize(string configPath);
-        bool readCameraParameters(string filename, Mat &camMatrix, Mat &distCoeffs);
-        bool readImages(string path);
+        MonoCameraDataset(std::string configPath);
+        bool initialize(std::string configPath);
+        bool readCameraParameters(std::string filename);
+        bool readImagesPaths(std::string path);
 
         bool isNext(){
           if(imagePathsIterator!=imagePaths.end()){
@@ -71,13 +82,13 @@ namespace cv {
           return false;
         }
 
-        Mat getNext(){
-          if(isNext){
+        Mat* getNext(){
+          if(isNext()){
             imagePathsIterator++;
-            currentImage = cv::imread(imagePathsIterator, CV_LOAD_IMAGE_COLOR);
-            return currentImage;
+            currentImage = cv::imread(*imagePathsIterator, CV_LOAD_IMAGE_COLOR);
+            return &currentImage;
           }
-          return null;
+          return NULL;
         }
 
         Mat* getCamMatrix(){
@@ -86,6 +97,8 @@ namespace cv {
         Mat* getDistCoeffs(){
           return &distCoeffs;
         }
-    }
+    };
   }
 }
+
+#endif

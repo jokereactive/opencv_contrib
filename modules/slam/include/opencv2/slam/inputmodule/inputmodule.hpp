@@ -39,13 +39,21 @@ the use of this software, even if advised of the possibility of such damage.
 #ifndef __OPENCV_INPUTMODULE_HPP__
 #define __OPENCV_INPUTMODULE_HPP__
 
+//General
 #include <opencv2/core.hpp>
+#include <opencv2/calib3d.hpp>
+#include <opencv2/highgui.hpp>
 #include <vector>
-#include <string>
-#include <opencv2/inputmodule/camera.hpp>
-#include <opencv2/inputmodule/dataset.hpp>
-#include <opencv2/inputmodule/monocamera.hpp>
-#include <opencv2/inputmodule/monocameradataset.hpp>
+#include <iostream>
+#include <fstream>
+#include <cstddef>
+
+//Slam Related
+#include <opencv2/slam/inputmodule/camera.hpp>
+#include <opencv2/slam/inputmodule/dataset.hpp>
+#include <opencv2/slam/inputmodule/monocamera.hpp>
+#include <opencv2/slam/inputmodule/monocameradataset.hpp>
+#include <opencv2/slam/utilities/logger.hpp>
 
 
 namespace cv {
@@ -56,6 +64,11 @@ namespace cv {
      * This class is a factory class and can be used to generate cameras and datasets
      * It can also be used to run dataset slam.
      */
+    class Camera;
+    class Dataset;
+    class MonoCamera;
+    class MonoCameraDataset;
+
     class CV_EXPORTS_W InputModule {
       public:
         /**
@@ -66,7 +79,7 @@ namespace cv {
          *
          * This functions creates a Camera Object given the Camera Type obtained from the cameraConfigPath. Example - Mono Camera, RGBD Camera, etc.
          */
-        Camera createCamera(string cameraConfigPath);
+        Camera* createCamera(std::string cameraConfigPath);
 
         /**
          * @brief Create a Dataset object
@@ -75,8 +88,8 @@ namespace cv {
          *
          * This functions creates a Dataset Object given the Camera Type obtained from the cameraConfigPath. Example - Mono Camera, RGBD Camera, etc.
          */
-        Dataset createDataset(string datasetConfigPath);
-    }
+        Dataset* createDataset(std::string datasetConfigPath);
+    };
   }
 }
 

@@ -1,0 +1,5 @@
+%YAML:1.0
+squareLength: squareLength
+markerLength: markerLength
+dictionaryId: dictionaryId
+
