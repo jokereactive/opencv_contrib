@@ -36,47 +36,56 @@ or tort (including negligence or otherwise) arising in any way out of
 the use of this software, even if advised of the possibility of such damage.
 */
 
-#ifndef __OPENCV_INPUTMODULE_HPP__
-#define __OPENCV_INPUTMODULE_HPP__
+#ifndef __OPENCV_MONOCAMERADATASET_HPP__
+#define __OPENCV_MONOCAMERADATASET_HPP__
 
 #include <opencv2/core.hpp>
 #include <vector>
 #include <string>
-#include <opencv2/inputmodule/inputmodule.hpp>
+#include <opencv2/inputmodule/monocameradataset.hpp>
 
 
 namespace cv {
   namespace slam {
+    /**
+     * @brief Camera
+     * This is an abstract class to create various implementations of cameras this SLAM system may support
+     */
+    class CV_EXPORTS_W MonoCameraDataset: public Dataset {
+      private:
+        Mat camMatrix;
+        Mat distCoeffs;
+        Mat currentImage;
+        std::vector<string> imagePaths;
+        std::vector::iterator<string> imagePathsIterator;
 
-    Camera InputModule::createCamera(string cameraConfigPath){
-        string cameraType;
-        FileStorage fs(cameraConfigPath, FileStorage::READ);
-        if(!fs.isOpened())
-            return null;
-        fs["camera_type"] >> cameraType;
-        switch(cameraType){
-          case "MONO":
-                return new MonoCamera()
-          default:
-                return null;
+      public:
+        bool initialize(string configPath);
+        bool readCameraParameters(string filename, Mat &camMatrix, Mat &distCoeffs);
+        bool readImages(string path);
+
+        bool isNext(){
+          if(imagePathsIterator!=imagePaths.end()){
+            return true;
+          }
+          return false;
         }
-    }
 
-    Dataset InputModule::createDataset(string datasetConfigPath){
-        string cameraType;
-        FileStorage fs(datasetConfigPath, FileStorage::READ);
-        if(!fs.isOpened())
-            return null;
-        fs["camera_type"] >> cameraType;
-        switch(cameraType){
-          case "MONO":
-                return new MonoCameraDataset()
-          default:
-                return null;
+        Mat getNext(){
+          if(isNext){
+            imagePathsIterator++;
+            currentImage = cv::imread(imagePathsIterator, CV_LOAD_IMAGE_COLOR);
+            return currentImage;
+          }
+          return null;
+        }
+
+        Mat* getCamMatrix(){
+          return &camMatrix;
+        }
+        Mat* getDistCoeffs(){
+          return &distCoeffs;
         }
     }
   }
 }
-
-
-#endif

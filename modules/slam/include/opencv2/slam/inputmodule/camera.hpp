@@ -36,47 +36,48 @@ or tort (including negligence or otherwise) arising in any way out of
 the use of this software, even if advised of the possibility of such damage.
 */
 
-#ifndef __OPENCV_INPUTMODULE_HPP__
-#define __OPENCV_INPUTMODULE_HPP__
+#ifndef __OPENCV_CAMERA_HPP__
+#define __OPENCV_CAMERA_HPP__
 
 #include <opencv2/core.hpp>
 #include <vector>
 #include <string>
-#include <opencv2/inputmodule/inputmodule.hpp>
 
 
 namespace cv {
   namespace slam {
+    /**
+     * @brief Camera
+     * This is an abstract class to create various implementations of cameras this SLAM system may support
+     */
+    class CV_EXPORTS_W Camera {
+      private:
+        string configPath;
+        bool ready;
 
-    Camera InputModule::createCamera(string cameraConfigPath){
-        string cameraType;
-        FileStorage fs(cameraConfigPath, FileStorage::READ);
-        if(!fs.isOpened())
-            return null;
-        fs["camera_type"] >> cameraType;
-        switch(cameraType){
-          case "MONO":
-                return new MonoCamera()
-          default:
-                return null;
+      public:
+        string getConfigPath(){
+          return configPath;
         }
-    }
 
-    Dataset InputModule::createDataset(string datasetConfigPath){
-        string cameraType;
-        FileStorage fs(datasetConfigPath, FileStorage::READ);
-        if(!fs.isOpened())
-            return null;
-        fs["camera_type"] >> cameraType;
-        switch(cameraType){
-          case "MONO":
-                return new MonoCameraDataset()
-          default:
-                return null;
+        void setConfigPath(string configPath){
+          this->configPath=configPath;
+        }
+
+        virtual bool initialize(string configPath)=0;
+
+        Camera(string configPath){
+          this->setConfigPath(configPath);
+          this->ready=initialize(this->getConfigPath());
+        }
+
+        bool isReady(){
+          return this->ready;
+        }
+
+        Camera(){
+          this->ready=false;
         }
     }
   }
 }
-
-
-#endif

@@ -36,47 +36,41 @@ or tort (including negligence or otherwise) arising in any way out of
 the use of this software, even if advised of the possibility of such damage.
 */
 
-#ifndef __OPENCV_INPUTMODULE_HPP__
-#define __OPENCV_INPUTMODULE_HPP__
+#ifndef __OPENCV_MONOCAMERA_HPP__
+#define __OPENCV_MONOCAMERA_HPP__
 
 #include <opencv2/core.hpp>
 #include <vector>
 #include <string>
-#include <opencv2/inputmodule/inputmodule.hpp>
+#include <opencv2/inputmodule/camera.hpp>
 
 
 namespace cv {
   namespace slam {
+    /**
+     * @brief Camera
+     * This is an abstract class to create various implementations of cameras this SLAM system may support
+     */
+    class CV_EXPORTS_W MonoCamera: public Camera {
+      private:
+        Mat camMatrix;
+        Mat distCoeffs;
+        VideoCapture inputVideo;
+        string video;
+        int camId;
+        int waitTime;
 
-    Camera InputModule::createCamera(string cameraConfigPath){
-        string cameraType;
-        FileStorage fs(cameraConfigPath, FileStorage::READ);
-        if(!fs.isOpened())
-            return null;
-        fs["camera_type"] >> cameraType;
-        switch(cameraType){
-          case "MONO":
-                return new MonoCamera()
-          default:
-                return null;
+      public:
+        bool initialize(string configPath);
+        bool readCameraParameters(string filename, Mat &camMatrix, Mat &distCoeffs);
+        bool start();
+        Mat getFrame();
+        Mat* getCamMatrix(){
+        	return &camMatrix;
         }
-    }
-
-    Dataset InputModule::createDataset(string datasetConfigPath){
-        string cameraType;
-        FileStorage fs(datasetConfigPath, FileStorage::READ);
-        if(!fs.isOpened())
-            return null;
-        fs["camera_type"] >> cameraType;
-        switch(cameraType){
-          case "MONO":
-                return new MonoCameraDataset()
-          default:
-                return null;
+        Mat* getDistCoeffs(){
+        	return &distCoeffs;
         }
     }
   }
 }
-
-
-#endif

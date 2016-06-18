@@ -1,4 +1,4 @@
-/*
+ /*
 By downloading, copying, installing or using the software you agree to this
 license. If you do not agree to this license, do not download, install,
 copy or use the software.
@@ -36,47 +36,51 @@ or tort (including negligence or otherwise) arising in any way out of
 the use of this software, even if advised of the possibility of such damage.
 */
 
-#ifndef __OPENCV_INPUTMODULE_HPP__
-#define __OPENCV_INPUTMODULE_HPP__
-
+#include "opencv2/slam.hpp"
 #include <opencv2/core.hpp>
-#include <vector>
-#include <string>
-#include <opencv2/inputmodule/inputmodule.hpp>
-
+#include <opencv2/imgproc.hpp>
+#include <opencv2/monocameradataset.hpp>
 
 namespace cv {
-  namespace slam {
+	namespace slam {
 
-    Camera InputModule::createCamera(string cameraConfigPath){
-        string cameraType;
-        FileStorage fs(cameraConfigPath, FileStorage::READ);
-        if(!fs.isOpened())
-            return null;
-        fs["camera_type"] >> cameraType;
-        switch(cameraType){
-          case "MONO":
-                return new MonoCamera()
-          default:
-                return null;
-        }
-    }
+		using namespace std;
+			
+		bool MonoCameraDataset::initialize(string configPath){
+			string imagesPath;
+			string calibPath;
+			FileStorage fs(configPath, FileStorage::READ);
+		    if(!fs.isOpened())
+		        return false;
+		    fs["images_path"] >> imagesPath;
+		    fs["calib_path"] >> calibPath;
+			if(readCameraParameters(calibPath) && readImagePaths(imagesPath)){
+				return true;
+			}
+			return false;
+		}
 
-    Dataset InputModule::createDataset(string datasetConfigPath){
-        string cameraType;
-        FileStorage fs(datasetConfigPath, FileStorage::READ);
-        if(!fs.isOpened())
-            return null;
-        fs["camera_type"] >> cameraType;
-        switch(cameraType){
-          case "MONO":
-                return new MonoCameraDataset()
-          default:
-                return null;
-        }
-    }
-  }
+		bool MonoCameraDataset::readCameraParameters(string calibPath){
+			FileStorage fs(calibPath, FileStorage::READ);
+		    if(!fs.isOpened())
+		        return false;
+		    fs["camera_matrix"] >> camMatrix;
+		    fs["distortion_coefficients"] >> distCoeffs;
+		    return true;
+		}
+
+		bool MonoCameraDataset::readImagePaths(string imagesPath){
+			std::ifstream infile(imagesPath);
+			std::string line;
+			if(!infile){
+				return false;
+			}
+			while (std::getline(infile, line))
+			{
+			    imagePaths.push_back(line);
+			}
+			imagePathsIterator=imagePaths.begin();
+			return true;
+		}
+	}
 }
-
-
-#endif
