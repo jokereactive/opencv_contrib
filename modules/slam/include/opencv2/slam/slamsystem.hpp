@@ -42,20 +42,6 @@ the use of this software, even if advised of the possibility of such damage.
 #include <opencv2/core.hpp>
 #include <vector>
 
-//SLAM Modules
-//Input Module
-#include "opencv2/slam/inputmodule/inputmodule.hpp"
-//Mapping Module
-#include "opencv2/slam/mappingmodule/mappingmodule.hpp"
-//Optimisation Module
-#include "opencv2/slam/optimisationmodule/optimisationmodule.hpp"
-//Relocalisation Module
-#include "opencv2/slam/relocalisationmodule/relocalisationmodule.hpp"
-//Tracking Module
-#include "opencv2/slam/trackingmodule/trackingmodule.hpp"
-//Visualisation Module
-#include "opencv2/slam/visualisationmodule/visualisationmodule.hpp"
-
 //Logger
 #include "opencv2/slam/utilities/logger.hpp"
 

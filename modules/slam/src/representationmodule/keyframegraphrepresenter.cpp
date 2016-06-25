@@ -44,8 +44,8 @@ namespace cv {
     vector<CharucoFrame*> KeyFrameGraph::getFrameMatches(CharucoFrame* charucoFrame){
       vector<CharucoFrame*> matches;
       for(int i=0;i<nodes.size();i++){
-          if(!charucoFrame.compare(nodes[i].getFrame())){
-              matches.push_back(nodes[i].getFrame());
+          if(!charucoFrame->compare(nodes[i]->getFrame())){
+              matches.push_back(nodes[i]->getFrame());
             }
         }
       return matches;
@@ -53,26 +53,26 @@ namespace cv {
     vector<Node*> KeyFrameGraph::getNodeMatches(CharucoFrame* charucoFrame){
       vector<Node*> matches;
       for(int i=0;i<nodes.size();i++){
-          if(!charucoFrame.compare(nodes[i].getFrame())){
+          if(!charucoFrame->compare(nodes[i]->getFrame())){
               matches.push_back(nodes[i]);
             }
         }
       return matches;
     }
 
-    Node* getNodeById(unsigned long int id){
+    Node* KeyFrameGraph::getNodeById(unsigned long int id){
       for(int i=0;i<nodes.size();i++){
-          if(node[i].getId()==id){
-              return node[i];
+          if(nodes[i]->getId()==id){
+              return nodes[i];
             }
         }
       return NULL;
     }
 
-    CharucoFrame* getFrameById(unsigned long int id){
+    CharucoFrame* KeyFrameGraph::getFrameById(unsigned long int id){
       for(int i=0;i<nodes.size();i++){
-          if(node[i].getId()==id){
-              return node[i].getFrame();
+          if(nodes[i]->getId()==id){
+              return nodes[i]->getFrame();
             }
         }
       return NULL;

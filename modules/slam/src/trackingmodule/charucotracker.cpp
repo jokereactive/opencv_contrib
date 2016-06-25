@@ -36,13 +36,13 @@ or tort (including negligence or otherwise) arising in any way out of
 the use of this software, even if advised of the possibility of such damage.
 */
 
-#include <opencv2/slam/trackingmodule/tracker.hpp>
+#include <opencv2/slam/trackingmodule/charucotracker.hpp>
 
 namespace cv {
   namespace slam {
     using namespace std;
 
-    CharucoTracker::CharucoTracker(int lastN, string configPath, MonoCamera &monoCamera):Tracker(lastN){
+    CharucoTracker::CharucoTracker(int lastN, string configPath, MonoCamera* monoCamera):Tracker(lastN){
         this->monoCamera=monoCamera;
         string detectorParamsPath = configPath + "/detector_params.yml";
         string configArucoPath = configPath + "/config.txt";
@@ -67,6 +67,9 @@ namespace cv {
       vector< vector< Point2f > > markerCorners, rejectedMarkers, diamondCorners;
       vector< Vec3d > rvecs, tvecs;
 
+      Ptr<aruco::Dictionary> dictionary =
+              cv::aruco::getPredefinedDictionary(aruco::PREDEFINED_DICTIONARY_NAME(dictionaryId));
+
       // detect markers
       aruco::detectMarkers(image, dictionary, markerCorners, markerIds, detectorParams,
                            rejectedMarkers);
@@ -75,16 +78,17 @@ namespace cv {
       if(markerIds.size() > 0){
           aruco::detectCharucoDiamond(image, markerCorners, markerIds,
                                       squareLength / markerLength, diamondCorners, diamondIds,
-                                      monoCamera->getcamMatrix(), monoCamera->getDistCoeffs());
+                                      monoCamera->getCamMatrix(), monoCamera->getDistCoeffs());
         }
       else{
           return false;
         }
 
       // estimate diamond pose
-      if(estimatePose && diamondIds.size() > 0) {
-        aruco::estimatePoseSingleMarkers(diamondCorners, squareLength, monoCamera->getcamMatrix(),
+      if(diamondIds.size() > 0) {
+        aruco::estimatePoseSingleMarkers(diamondCorners, squareLength, monoCamera->getCamMatrix(),
                                          monoCamera->getDistCoeffs(), rvecs, tvecs);
+        }
         else{
           return false;
         }
@@ -93,39 +97,39 @@ namespace cv {
       // register MapPoints based on Diamonds detected
       std::vector<CharucoMapPoint*> mapPointsIdentified;
       for(unsigned int i = 0; i < diamondIds.size(); i++){
-        aruco::drawAxis(image, camMatrix, distCoeffs, rvecs[i], tvecs[i],
+        aruco::drawAxis(image, monoCamera->getCamMatrix(), monoCamera->getDistCoeffs(), rvecs[i], tvecs[i],
                         squareLength * 0.5f);
         Affine3f pose_temp(rvecs[i],tvecs[i]);
-        mapPoints.push_back(new CharucoMapPoint(diamondIds[i],AffinePose(pose_temp),charucoFrame));
+        mapPointsIdentified.push_back(new CharucoMapPoint(diamondIds[i],AffinePose(pose_temp),charucoFrame));
         }
-      charucoFrame.addMapPoints(mapPointsIdentified);
+      charucoFrame->addMapPoints(mapPointsIdentified);
 
-      Affine3f pose;
-      if(keyFrameGraph.getNodes().size()==0){
+      Affine3f* pose;
+      if(keyFrameGraph->getNodes().size()==0){
           //First Frame
           pose= new Affine3f(Vec3d(0,0,0),Vec3d(0,0,0));
-          charucoFrame.addTracking(pose);
+          charucoFrame->addTracking(*pose);
           Node* node = new Node(charucoFrame);
           keyFrameGraph->insert(node);
         }
       else{
           // Find matches in KeyFrameGraph
-          vector<CharucoFrame*> candidates = keyFrameGraph.getFrameMatches(charucoFrame);
-          vector<Node*> candidates_nodes = keyFrameGraph.getNodeMatches(charucoFrame);
+          vector<CharucoFrame*> candidates = keyFrameGraph->getFrameMatches(charucoFrame);
+          vector<Node*> candidates_nodes = keyFrameGraph->getNodeMatches(charucoFrame);
           if(candidates.size()==0){
               return false;
             }
 
           // Estimate Pose based on first match tracked frame
-          charucoFrame* reference = candidates[candidates.size()-1];
-          Affine3f referenceInverse = reference.inv();
-          pose= referenceInverse*charucoFrame.getPose();
-          charucoFrame.addTracking(pose);
+          CharucoFrame* reference = candidates[candidates.size()-1];
+          Affine3f referenceInverse = reference->getPose().getPose().inv();
+          *pose= referenceInverse*charucoFrame->getPose().getPose();
+          charucoFrame->addTracking(*pose);
 
           // Add Constraint to Graph. This will be used Later.
-          Node* reference = candidates_nodes[candidates_nodes.size()-1];
+          Node* reference_node = candidates_nodes[candidates_nodes.size()-1];
           Node* node = new Node(charucoFrame);
-          reference->addConstraint(node,pose);
+          reference_node->addConstraint(node,*pose);
 
         }
       return true;

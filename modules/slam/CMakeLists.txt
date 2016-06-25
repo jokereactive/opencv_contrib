@@ -8,7 +8,7 @@ find_package( OpenCV REQUIRED )
 
 include_directories(include)
 
-add_library(opencv_slam
+add_library(opencv_slam_modules
     include/opencv2/slam/datastructures/affinepose.hpp
     include/opencv2/slam/datastructures/charucoframe.hpp
     include/opencv2/slam/datastructures/charucomappoint.hpp
@@ -35,8 +35,6 @@ add_library(opencv_slam
     include/opencv2/slam/visualisationmodule/visualisationmodule.hpp
     include/opencv2/slam/visualisationmodule/visualiser.hpp
     include/opencv2/slam/visualisationmodule/vizvisualiser.hpp
-    include/opencv2/slam/charucoslamsystem.hpp
-    include/opencv2/slam/slamsystem.hpp
     include/opencv2/slam.hpp
     src/datastructures/charucoframe.cpp
     src/datastructures/charucomappoint.cpp
@@ -53,8 +51,6 @@ add_library(opencv_slam
     src/trackingmodule/trackingmodule.cpp
     src/utilities/logger.cpp
     src/visualisationmodule/visualisationmodule.cpp
-    src/charucoslamsystem.cpp
-    src/slamsystem.cpp
     src/mappingmodule/charucomapper.cpp
     src/mappingmodule/mapper.cpp
     src/visualisationmodule/visualiser.cpp
@@ -62,10 +58,19 @@ add_library(opencv_slam
     src/representationmodule/keyframegraphrepresenter.cpp
     src/representationmodule/representer.cpp
     src/trackingmodule/tracker.cpp
-    src/trackingmodule/charucotracker.cpp)
-
-add_executable(demo_slam
-    samples/demo_slam.cpp
+    src/slamsystem.cpp
+    include/opencv2/slam/slamsystem.hpp
+    src/trackingmodule/charucotracker.cpp
     )
 
-target_link_libraries(demo_slam opencv_slam)
+add_library(charuco_slam
+    src/charucoslamsystem.cpp
+    include/opencv2/slam/charucoslamsystem.hpp
+    ${opencv_slam_modules})
+
+add_executable(demo_charuco_slam
+    samples/demo_slam.cpp
+    ${charuco_slam}
+)
+
+target_link_libraries(demo_charuco_slam charuco_slam opencv_slam_modules)

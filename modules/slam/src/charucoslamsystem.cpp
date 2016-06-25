@@ -44,9 +44,6 @@ namespace cv {
   namespace slam {
     using namespace std;
 
-    CharucoSlamSystem::CharucoSlamSystem(string config):SlamSystem(config){
-
-    }
 
     //Configure from the config file what mapper, tracker, etc do you want to set.
     bool CharucoSlamSystem::setup(string config){
@@ -110,7 +107,7 @@ namespace cv {
       //Get Image
       CharucoFrame* charucoFrame= new CharucoFrame(monoCamera->getFrame());
 
-      charucoTracker->trackFrame(charucoFrame, &keyFrameGraph);
+      charucoTracker->trackFrame(charucoFrame, keyFrameGraph);
 
       //If Tracking is Good, add to KeyFrameGraph with appropriate constraints.
       if(charucoFrame->isTracked()){

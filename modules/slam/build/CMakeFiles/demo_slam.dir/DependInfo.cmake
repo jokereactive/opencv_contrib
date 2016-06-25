@@ -5,6 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sarthak/GSOC/opencv_contrib/modules/slam/samples/demo_slam.cpp" "/home/sarthak/GSOC/opencv_contrib/modules/slam/build/CMakeFiles/demo_slam.dir/samples/demo_slam.cpp.o"
+  "/home/sarthak/GSOC/opencv_contrib/modules/slam/src/charucoslamsystem.cpp" "/home/sarthak/GSOC/opencv_contrib/modules/slam/build/CMakeFiles/demo_slam.dir/src/charucoslamsystem.cpp.o"
+  "/home/sarthak/GSOC/opencv_contrib/modules/slam/src/slamsystem.cpp" "/home/sarthak/GSOC/opencv_contrib/modules/slam/build/CMakeFiles/demo_slam.dir/src/slamsystem.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,7 +17,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/sarthak/GSOC/opencv_contrib/modules/slam/build/CMakeFiles/opencv_slam.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

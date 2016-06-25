@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/demo_charuco_slam.dir/samples/demo_slam.cpp.o  -o demo_charuco_slam -rdynamic libcharuco_slam.a libopencv_slam_modules.a 

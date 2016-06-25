@@ -111,30 +111,43 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named opencv_slam
+# Target rules for targets named charuco_slam
 
 # Build rule for target.
-opencv_slam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 opencv_slam
-.PHONY : opencv_slam
+charuco_slam: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 charuco_slam
+.PHONY : charuco_slam
 
 # fast build rule for target.
-opencv_slam/fast:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/build
-.PHONY : opencv_slam/fast
+charuco_slam/fast:
+	$(MAKE) -f CMakeFiles/charuco_slam.dir/build.make CMakeFiles/charuco_slam.dir/build
+.PHONY : charuco_slam/fast
 
 #=============================================================================
-# Target rules for targets named demo_slam
+# Target rules for targets named demo_charuco_slam
 
 # Build rule for target.
-demo_slam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 demo_slam
-.PHONY : demo_slam
+demo_charuco_slam: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 demo_charuco_slam
+.PHONY : demo_charuco_slam
 
 # fast build rule for target.
-demo_slam/fast:
-	$(MAKE) -f CMakeFiles/demo_slam.dir/build.make CMakeFiles/demo_slam.dir/build
-.PHONY : demo_slam/fast
+demo_charuco_slam/fast:
+	$(MAKE) -f CMakeFiles/demo_charuco_slam.dir/build.make CMakeFiles/demo_charuco_slam.dir/build
+.PHONY : demo_charuco_slam/fast
+
+#=============================================================================
+# Target rules for targets named opencv_slam_modules
+
+# Build rule for target.
+opencv_slam_modules: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 opencv_slam_modules
+.PHONY : opencv_slam_modules
+
+# fast build rule for target.
+opencv_slam_modules/fast:
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/build
+.PHONY : opencv_slam_modules/fast
 
 samples/demo_slam.o: samples/demo_slam.cpp.o
 
@@ -142,7 +155,7 @@ samples/demo_slam.o: samples/demo_slam.cpp.o
 
 # target to build an object file
 samples/demo_slam.cpp.o:
-	$(MAKE) -f CMakeFiles/demo_slam.dir/build.make CMakeFiles/demo_slam.dir/samples/demo_slam.cpp.o
+	$(MAKE) -f CMakeFiles/demo_charuco_slam.dir/build.make CMakeFiles/demo_charuco_slam.dir/samples/demo_slam.cpp.o
 .PHONY : samples/demo_slam.cpp.o
 
 samples/demo_slam.i: samples/demo_slam.cpp.i
@@ -151,7 +164,7 @@ samples/demo_slam.i: samples/demo_slam.cpp.i
 
 # target to preprocess a source file
 samples/demo_slam.cpp.i:
-	$(MAKE) -f CMakeFiles/demo_slam.dir/build.make CMakeFiles/demo_slam.dir/samples/demo_slam.cpp.i
+	$(MAKE) -f CMakeFiles/demo_charuco_slam.dir/build.make CMakeFiles/demo_charuco_slam.dir/samples/demo_slam.cpp.i
 .PHONY : samples/demo_slam.cpp.i
 
 samples/demo_slam.s: samples/demo_slam.cpp.s
@@ -160,8 +173,35 @@ samples/demo_slam.s: samples/demo_slam.cpp.s
 
 # target to generate assembly for a file
 samples/demo_slam.cpp.s:
-	$(MAKE) -f CMakeFiles/demo_slam.dir/build.make CMakeFiles/demo_slam.dir/samples/demo_slam.cpp.s
+	$(MAKE) -f CMakeFiles/demo_charuco_slam.dir/build.make CMakeFiles/demo_charuco_slam.dir/samples/demo_slam.cpp.s
 .PHONY : samples/demo_slam.cpp.s
+
+src/charucoslamsystem.o: src/charucoslamsystem.cpp.o
+
+.PHONY : src/charucoslamsystem.o
+
+# target to build an object file
+src/charucoslamsystem.cpp.o:
+	$(MAKE) -f CMakeFiles/charuco_slam.dir/build.make CMakeFiles/charuco_slam.dir/src/charucoslamsystem.cpp.o
+.PHONY : src/charucoslamsystem.cpp.o
+
+src/charucoslamsystem.i: src/charucoslamsystem.cpp.i
+
+.PHONY : src/charucoslamsystem.i
+
+# target to preprocess a source file
+src/charucoslamsystem.cpp.i:
+	$(MAKE) -f CMakeFiles/charuco_slam.dir/build.make CMakeFiles/charuco_slam.dir/src/charucoslamsystem.cpp.i
+.PHONY : src/charucoslamsystem.cpp.i
+
+src/charucoslamsystem.s: src/charucoslamsystem.cpp.s
+
+.PHONY : src/charucoslamsystem.s
+
+# target to generate assembly for a file
+src/charucoslamsystem.cpp.s:
+	$(MAKE) -f CMakeFiles/charuco_slam.dir/build.make CMakeFiles/charuco_slam.dir/src/charucoslamsystem.cpp.s
+.PHONY : src/charucoslamsystem.cpp.s
 
 src/datastructures/charucoframe.o: src/datastructures/charucoframe.cpp.o
 
@@ -169,7 +209,7 @@ src/datastructures/charucoframe.o: src/datastructures/charucoframe.cpp.o
 
 # target to build an object file
 src/datastructures/charucoframe.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/charucoframe.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/charucoframe.cpp.o
 .PHONY : src/datastructures/charucoframe.cpp.o
 
 src/datastructures/charucoframe.i: src/datastructures/charucoframe.cpp.i
@@ -178,7 +218,7 @@ src/datastructures/charucoframe.i: src/datastructures/charucoframe.cpp.i
 
 # target to preprocess a source file
 src/datastructures/charucoframe.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/charucoframe.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/charucoframe.cpp.i
 .PHONY : src/datastructures/charucoframe.cpp.i
 
 src/datastructures/charucoframe.s: src/datastructures/charucoframe.cpp.s
@@ -187,7 +227,7 @@ src/datastructures/charucoframe.s: src/datastructures/charucoframe.cpp.s
 
 # target to generate assembly for a file
 src/datastructures/charucoframe.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/charucoframe.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/charucoframe.cpp.s
 .PHONY : src/datastructures/charucoframe.cpp.s
 
 src/datastructures/charucomappoint.o: src/datastructures/charucomappoint.cpp.o
@@ -196,7 +236,7 @@ src/datastructures/charucomappoint.o: src/datastructures/charucomappoint.cpp.o
 
 # target to build an object file
 src/datastructures/charucomappoint.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/charucomappoint.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/charucomappoint.cpp.o
 .PHONY : src/datastructures/charucomappoint.cpp.o
 
 src/datastructures/charucomappoint.i: src/datastructures/charucomappoint.cpp.i
@@ -205,7 +245,7 @@ src/datastructures/charucomappoint.i: src/datastructures/charucomappoint.cpp.i
 
 # target to preprocess a source file
 src/datastructures/charucomappoint.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/charucomappoint.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/charucomappoint.cpp.i
 .PHONY : src/datastructures/charucomappoint.cpp.i
 
 src/datastructures/charucomappoint.s: src/datastructures/charucomappoint.cpp.s
@@ -214,7 +254,7 @@ src/datastructures/charucomappoint.s: src/datastructures/charucomappoint.cpp.s
 
 # target to generate assembly for a file
 src/datastructures/charucomappoint.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/charucomappoint.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/charucomappoint.cpp.s
 .PHONY : src/datastructures/charucomappoint.cpp.s
 
 src/datastructures/frame.o: src/datastructures/frame.cpp.o
@@ -223,7 +263,7 @@ src/datastructures/frame.o: src/datastructures/frame.cpp.o
 
 # target to build an object file
 src/datastructures/frame.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/frame.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/frame.cpp.o
 .PHONY : src/datastructures/frame.cpp.o
 
 src/datastructures/frame.i: src/datastructures/frame.cpp.i
@@ -232,7 +272,7 @@ src/datastructures/frame.i: src/datastructures/frame.cpp.i
 
 # target to preprocess a source file
 src/datastructures/frame.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/frame.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/frame.cpp.i
 .PHONY : src/datastructures/frame.cpp.i
 
 src/datastructures/frame.s: src/datastructures/frame.cpp.s
@@ -241,7 +281,7 @@ src/datastructures/frame.s: src/datastructures/frame.cpp.s
 
 # target to generate assembly for a file
 src/datastructures/frame.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/frame.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/frame.cpp.s
 .PHONY : src/datastructures/frame.cpp.s
 
 src/datastructures/mappoint.o: src/datastructures/mappoint.cpp.o
@@ -250,7 +290,7 @@ src/datastructures/mappoint.o: src/datastructures/mappoint.cpp.o
 
 # target to build an object file
 src/datastructures/mappoint.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/mappoint.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/mappoint.cpp.o
 .PHONY : src/datastructures/mappoint.cpp.o
 
 src/datastructures/mappoint.i: src/datastructures/mappoint.cpp.i
@@ -259,7 +299,7 @@ src/datastructures/mappoint.i: src/datastructures/mappoint.cpp.i
 
 # target to preprocess a source file
 src/datastructures/mappoint.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/mappoint.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/mappoint.cpp.i
 .PHONY : src/datastructures/mappoint.cpp.i
 
 src/datastructures/mappoint.s: src/datastructures/mappoint.cpp.s
@@ -268,7 +308,7 @@ src/datastructures/mappoint.s: src/datastructures/mappoint.cpp.s
 
 # target to generate assembly for a file
 src/datastructures/mappoint.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/mappoint.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/mappoint.cpp.s
 .PHONY : src/datastructures/mappoint.cpp.s
 
 src/datastructures/pose.o: src/datastructures/pose.cpp.o
@@ -277,7 +317,7 @@ src/datastructures/pose.o: src/datastructures/pose.cpp.o
 
 # target to build an object file
 src/datastructures/pose.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/pose.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/pose.cpp.o
 .PHONY : src/datastructures/pose.cpp.o
 
 src/datastructures/pose.i: src/datastructures/pose.cpp.i
@@ -286,7 +326,7 @@ src/datastructures/pose.i: src/datastructures/pose.cpp.i
 
 # target to preprocess a source file
 src/datastructures/pose.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/pose.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/pose.cpp.i
 .PHONY : src/datastructures/pose.cpp.i
 
 src/datastructures/pose.s: src/datastructures/pose.cpp.s
@@ -295,7 +335,7 @@ src/datastructures/pose.s: src/datastructures/pose.cpp.s
 
 # target to generate assembly for a file
 src/datastructures/pose.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/datastructures/pose.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/datastructures/pose.cpp.s
 .PHONY : src/datastructures/pose.cpp.s
 
 src/inputmodule/inputmodule.o: src/inputmodule/inputmodule.cpp.o
@@ -304,7 +344,7 @@ src/inputmodule/inputmodule.o: src/inputmodule/inputmodule.cpp.o
 
 # target to build an object file
 src/inputmodule/inputmodule.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/inputmodule/inputmodule.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/inputmodule/inputmodule.cpp.o
 .PHONY : src/inputmodule/inputmodule.cpp.o
 
 src/inputmodule/inputmodule.i: src/inputmodule/inputmodule.cpp.i
@@ -313,7 +353,7 @@ src/inputmodule/inputmodule.i: src/inputmodule/inputmodule.cpp.i
 
 # target to preprocess a source file
 src/inputmodule/inputmodule.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/inputmodule/inputmodule.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/inputmodule/inputmodule.cpp.i
 .PHONY : src/inputmodule/inputmodule.cpp.i
 
 src/inputmodule/inputmodule.s: src/inputmodule/inputmodule.cpp.s
@@ -322,7 +362,7 @@ src/inputmodule/inputmodule.s: src/inputmodule/inputmodule.cpp.s
 
 # target to generate assembly for a file
 src/inputmodule/inputmodule.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/inputmodule/inputmodule.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/inputmodule/inputmodule.cpp.s
 .PHONY : src/inputmodule/inputmodule.cpp.s
 
 src/inputmodule/monocamera.o: src/inputmodule/monocamera.cpp.o
@@ -331,7 +371,7 @@ src/inputmodule/monocamera.o: src/inputmodule/monocamera.cpp.o
 
 # target to build an object file
 src/inputmodule/monocamera.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/inputmodule/monocamera.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/inputmodule/monocamera.cpp.o
 .PHONY : src/inputmodule/monocamera.cpp.o
 
 src/inputmodule/monocamera.i: src/inputmodule/monocamera.cpp.i
@@ -340,7 +380,7 @@ src/inputmodule/monocamera.i: src/inputmodule/monocamera.cpp.i
 
 # target to preprocess a source file
 src/inputmodule/monocamera.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/inputmodule/monocamera.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/inputmodule/monocamera.cpp.i
 .PHONY : src/inputmodule/monocamera.cpp.i
 
 src/inputmodule/monocamera.s: src/inputmodule/monocamera.cpp.s
@@ -349,7 +389,7 @@ src/inputmodule/monocamera.s: src/inputmodule/monocamera.cpp.s
 
 # target to generate assembly for a file
 src/inputmodule/monocamera.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/inputmodule/monocamera.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/inputmodule/monocamera.cpp.s
 .PHONY : src/inputmodule/monocamera.cpp.s
 
 src/inputmodule/monocameradataset.o: src/inputmodule/monocameradataset.cpp.o
@@ -358,7 +398,7 @@ src/inputmodule/monocameradataset.o: src/inputmodule/monocameradataset.cpp.o
 
 # target to build an object file
 src/inputmodule/monocameradataset.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/inputmodule/monocameradataset.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/inputmodule/monocameradataset.cpp.o
 .PHONY : src/inputmodule/monocameradataset.cpp.o
 
 src/inputmodule/monocameradataset.i: src/inputmodule/monocameradataset.cpp.i
@@ -367,7 +407,7 @@ src/inputmodule/monocameradataset.i: src/inputmodule/monocameradataset.cpp.i
 
 # target to preprocess a source file
 src/inputmodule/monocameradataset.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/inputmodule/monocameradataset.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/inputmodule/monocameradataset.cpp.i
 .PHONY : src/inputmodule/monocameradataset.cpp.i
 
 src/inputmodule/monocameradataset.s: src/inputmodule/monocameradataset.cpp.s
@@ -376,7 +416,7 @@ src/inputmodule/monocameradataset.s: src/inputmodule/monocameradataset.cpp.s
 
 # target to generate assembly for a file
 src/inputmodule/monocameradataset.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/inputmodule/monocameradataset.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/inputmodule/monocameradataset.cpp.s
 .PHONY : src/inputmodule/monocameradataset.cpp.s
 
 src/mappingmodule/charucomapper.o: src/mappingmodule/charucomapper.cpp.o
@@ -385,7 +425,7 @@ src/mappingmodule/charucomapper.o: src/mappingmodule/charucomapper.cpp.o
 
 # target to build an object file
 src/mappingmodule/charucomapper.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/mappingmodule/charucomapper.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/mappingmodule/charucomapper.cpp.o
 .PHONY : src/mappingmodule/charucomapper.cpp.o
 
 src/mappingmodule/charucomapper.i: src/mappingmodule/charucomapper.cpp.i
@@ -394,7 +434,7 @@ src/mappingmodule/charucomapper.i: src/mappingmodule/charucomapper.cpp.i
 
 # target to preprocess a source file
 src/mappingmodule/charucomapper.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/mappingmodule/charucomapper.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/mappingmodule/charucomapper.cpp.i
 .PHONY : src/mappingmodule/charucomapper.cpp.i
 
 src/mappingmodule/charucomapper.s: src/mappingmodule/charucomapper.cpp.s
@@ -403,7 +443,7 @@ src/mappingmodule/charucomapper.s: src/mappingmodule/charucomapper.cpp.s
 
 # target to generate assembly for a file
 src/mappingmodule/charucomapper.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/mappingmodule/charucomapper.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/mappingmodule/charucomapper.cpp.s
 .PHONY : src/mappingmodule/charucomapper.cpp.s
 
 src/mappingmodule/mapper.o: src/mappingmodule/mapper.cpp.o
@@ -412,7 +452,7 @@ src/mappingmodule/mapper.o: src/mappingmodule/mapper.cpp.o
 
 # target to build an object file
 src/mappingmodule/mapper.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/mappingmodule/mapper.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/mappingmodule/mapper.cpp.o
 .PHONY : src/mappingmodule/mapper.cpp.o
 
 src/mappingmodule/mapper.i: src/mappingmodule/mapper.cpp.i
@@ -421,7 +461,7 @@ src/mappingmodule/mapper.i: src/mappingmodule/mapper.cpp.i
 
 # target to preprocess a source file
 src/mappingmodule/mapper.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/mappingmodule/mapper.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/mappingmodule/mapper.cpp.i
 .PHONY : src/mappingmodule/mapper.cpp.i
 
 src/mappingmodule/mapper.s: src/mappingmodule/mapper.cpp.s
@@ -430,7 +470,7 @@ src/mappingmodule/mapper.s: src/mappingmodule/mapper.cpp.s
 
 # target to generate assembly for a file
 src/mappingmodule/mapper.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/mappingmodule/mapper.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/mappingmodule/mapper.cpp.s
 .PHONY : src/mappingmodule/mapper.cpp.s
 
 src/mappingmodule/mappingmodule.o: src/mappingmodule/mappingmodule.cpp.o
@@ -439,7 +479,7 @@ src/mappingmodule/mappingmodule.o: src/mappingmodule/mappingmodule.cpp.o
 
 # target to build an object file
 src/mappingmodule/mappingmodule.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/mappingmodule/mappingmodule.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/mappingmodule/mappingmodule.cpp.o
 .PHONY : src/mappingmodule/mappingmodule.cpp.o
 
 src/mappingmodule/mappingmodule.i: src/mappingmodule/mappingmodule.cpp.i
@@ -448,7 +488,7 @@ src/mappingmodule/mappingmodule.i: src/mappingmodule/mappingmodule.cpp.i
 
 # target to preprocess a source file
 src/mappingmodule/mappingmodule.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/mappingmodule/mappingmodule.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/mappingmodule/mappingmodule.cpp.i
 .PHONY : src/mappingmodule/mappingmodule.cpp.i
 
 src/mappingmodule/mappingmodule.s: src/mappingmodule/mappingmodule.cpp.s
@@ -457,7 +497,7 @@ src/mappingmodule/mappingmodule.s: src/mappingmodule/mappingmodule.cpp.s
 
 # target to generate assembly for a file
 src/mappingmodule/mappingmodule.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/mappingmodule/mappingmodule.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/mappingmodule/mappingmodule.cpp.s
 .PHONY : src/mappingmodule/mappingmodule.cpp.s
 
 src/optimisationmodule/optimisationmodule.o: src/optimisationmodule/optimisationmodule.cpp.o
@@ -466,7 +506,7 @@ src/optimisationmodule/optimisationmodule.o: src/optimisationmodule/optimisation
 
 # target to build an object file
 src/optimisationmodule/optimisationmodule.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/optimisationmodule/optimisationmodule.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/optimisationmodule/optimisationmodule.cpp.o
 .PHONY : src/optimisationmodule/optimisationmodule.cpp.o
 
 src/optimisationmodule/optimisationmodule.i: src/optimisationmodule/optimisationmodule.cpp.i
@@ -475,7 +515,7 @@ src/optimisationmodule/optimisationmodule.i: src/optimisationmodule/optimisation
 
 # target to preprocess a source file
 src/optimisationmodule/optimisationmodule.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/optimisationmodule/optimisationmodule.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/optimisationmodule/optimisationmodule.cpp.i
 .PHONY : src/optimisationmodule/optimisationmodule.cpp.i
 
 src/optimisationmodule/optimisationmodule.s: src/optimisationmodule/optimisationmodule.cpp.s
@@ -484,7 +524,7 @@ src/optimisationmodule/optimisationmodule.s: src/optimisationmodule/optimisation
 
 # target to generate assembly for a file
 src/optimisationmodule/optimisationmodule.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/optimisationmodule/optimisationmodule.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/optimisationmodule/optimisationmodule.cpp.s
 .PHONY : src/optimisationmodule/optimisationmodule.cpp.s
 
 src/relocalisationmodule/relocalisationmodule.o: src/relocalisationmodule/relocalisationmodule.cpp.o
@@ -493,7 +533,7 @@ src/relocalisationmodule/relocalisationmodule.o: src/relocalisationmodule/reloca
 
 # target to build an object file
 src/relocalisationmodule/relocalisationmodule.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/relocalisationmodule/relocalisationmodule.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/relocalisationmodule/relocalisationmodule.cpp.o
 .PHONY : src/relocalisationmodule/relocalisationmodule.cpp.o
 
 src/relocalisationmodule/relocalisationmodule.i: src/relocalisationmodule/relocalisationmodule.cpp.i
@@ -502,7 +542,7 @@ src/relocalisationmodule/relocalisationmodule.i: src/relocalisationmodule/reloca
 
 # target to preprocess a source file
 src/relocalisationmodule/relocalisationmodule.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/relocalisationmodule/relocalisationmodule.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/relocalisationmodule/relocalisationmodule.cpp.i
 .PHONY : src/relocalisationmodule/relocalisationmodule.cpp.i
 
 src/relocalisationmodule/relocalisationmodule.s: src/relocalisationmodule/relocalisationmodule.cpp.s
@@ -511,7 +551,7 @@ src/relocalisationmodule/relocalisationmodule.s: src/relocalisationmodule/reloca
 
 # target to generate assembly for a file
 src/relocalisationmodule/relocalisationmodule.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/relocalisationmodule/relocalisationmodule.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/relocalisationmodule/relocalisationmodule.cpp.s
 .PHONY : src/relocalisationmodule/relocalisationmodule.cpp.s
 
 src/representationmodule/keyframegraphrepresenter.o: src/representationmodule/keyframegraphrepresenter.cpp.o
@@ -520,7 +560,7 @@ src/representationmodule/keyframegraphrepresenter.o: src/representationmodule/ke
 
 # target to build an object file
 src/representationmodule/keyframegraphrepresenter.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/representationmodule/keyframegraphrepresenter.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/representationmodule/keyframegraphrepresenter.cpp.o
 .PHONY : src/representationmodule/keyframegraphrepresenter.cpp.o
 
 src/representationmodule/keyframegraphrepresenter.i: src/representationmodule/keyframegraphrepresenter.cpp.i
@@ -529,7 +569,7 @@ src/representationmodule/keyframegraphrepresenter.i: src/representationmodule/ke
 
 # target to preprocess a source file
 src/representationmodule/keyframegraphrepresenter.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/representationmodule/keyframegraphrepresenter.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/representationmodule/keyframegraphrepresenter.cpp.i
 .PHONY : src/representationmodule/keyframegraphrepresenter.cpp.i
 
 src/representationmodule/keyframegraphrepresenter.s: src/representationmodule/keyframegraphrepresenter.cpp.s
@@ -538,7 +578,7 @@ src/representationmodule/keyframegraphrepresenter.s: src/representationmodule/ke
 
 # target to generate assembly for a file
 src/representationmodule/keyframegraphrepresenter.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/representationmodule/keyframegraphrepresenter.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/representationmodule/keyframegraphrepresenter.cpp.s
 .PHONY : src/representationmodule/keyframegraphrepresenter.cpp.s
 
 src/representationmodule/representationmodule.o: src/representationmodule/representationmodule.cpp.o
@@ -547,7 +587,7 @@ src/representationmodule/representationmodule.o: src/representationmodule/repres
 
 # target to build an object file
 src/representationmodule/representationmodule.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/representationmodule/representationmodule.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/representationmodule/representationmodule.cpp.o
 .PHONY : src/representationmodule/representationmodule.cpp.o
 
 src/representationmodule/representationmodule.i: src/representationmodule/representationmodule.cpp.i
@@ -556,7 +596,7 @@ src/representationmodule/representationmodule.i: src/representationmodule/repres
 
 # target to preprocess a source file
 src/representationmodule/representationmodule.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/representationmodule/representationmodule.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/representationmodule/representationmodule.cpp.i
 .PHONY : src/representationmodule/representationmodule.cpp.i
 
 src/representationmodule/representationmodule.s: src/representationmodule/representationmodule.cpp.s
@@ -565,7 +605,7 @@ src/representationmodule/representationmodule.s: src/representationmodule/repres
 
 # target to generate assembly for a file
 src/representationmodule/representationmodule.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/representationmodule/representationmodule.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/representationmodule/representationmodule.cpp.s
 .PHONY : src/representationmodule/representationmodule.cpp.s
 
 src/representationmodule/representer.o: src/representationmodule/representer.cpp.o
@@ -574,7 +614,7 @@ src/representationmodule/representer.o: src/representationmodule/representer.cpp
 
 # target to build an object file
 src/representationmodule/representer.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/representationmodule/representer.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/representationmodule/representer.cpp.o
 .PHONY : src/representationmodule/representer.cpp.o
 
 src/representationmodule/representer.i: src/representationmodule/representer.cpp.i
@@ -583,7 +623,7 @@ src/representationmodule/representer.i: src/representationmodule/representer.cpp
 
 # target to preprocess a source file
 src/representationmodule/representer.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/representationmodule/representer.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/representationmodule/representer.cpp.i
 .PHONY : src/representationmodule/representer.cpp.i
 
 src/representationmodule/representer.s: src/representationmodule/representer.cpp.s
@@ -592,8 +632,35 @@ src/representationmodule/representer.s: src/representationmodule/representer.cpp
 
 # target to generate assembly for a file
 src/representationmodule/representer.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/representationmodule/representer.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/representationmodule/representer.cpp.s
 .PHONY : src/representationmodule/representer.cpp.s
+
+src/slamsystem.o: src/slamsystem.cpp.o
+
+.PHONY : src/slamsystem.o
+
+# target to build an object file
+src/slamsystem.cpp.o:
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/slamsystem.cpp.o
+.PHONY : src/slamsystem.cpp.o
+
+src/slamsystem.i: src/slamsystem.cpp.i
+
+.PHONY : src/slamsystem.i
+
+# target to preprocess a source file
+src/slamsystem.cpp.i:
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/slamsystem.cpp.i
+.PHONY : src/slamsystem.cpp.i
+
+src/slamsystem.s: src/slamsystem.cpp.s
+
+.PHONY : src/slamsystem.s
+
+# target to generate assembly for a file
+src/slamsystem.cpp.s:
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/slamsystem.cpp.s
+.PHONY : src/slamsystem.cpp.s
 
 src/trackingmodule/charucotracker.o: src/trackingmodule/charucotracker.cpp.o
 
@@ -601,7 +668,7 @@ src/trackingmodule/charucotracker.o: src/trackingmodule/charucotracker.cpp.o
 
 # target to build an object file
 src/trackingmodule/charucotracker.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/trackingmodule/charucotracker.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/trackingmodule/charucotracker.cpp.o
 .PHONY : src/trackingmodule/charucotracker.cpp.o
 
 src/trackingmodule/charucotracker.i: src/trackingmodule/charucotracker.cpp.i
@@ -610,7 +677,7 @@ src/trackingmodule/charucotracker.i: src/trackingmodule/charucotracker.cpp.i
 
 # target to preprocess a source file
 src/trackingmodule/charucotracker.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/trackingmodule/charucotracker.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/trackingmodule/charucotracker.cpp.i
 .PHONY : src/trackingmodule/charucotracker.cpp.i
 
 src/trackingmodule/charucotracker.s: src/trackingmodule/charucotracker.cpp.s
@@ -619,7 +686,7 @@ src/trackingmodule/charucotracker.s: src/trackingmodule/charucotracker.cpp.s
 
 # target to generate assembly for a file
 src/trackingmodule/charucotracker.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/trackingmodule/charucotracker.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/trackingmodule/charucotracker.cpp.s
 .PHONY : src/trackingmodule/charucotracker.cpp.s
 
 src/trackingmodule/tracker.o: src/trackingmodule/tracker.cpp.o
@@ -628,7 +695,7 @@ src/trackingmodule/tracker.o: src/trackingmodule/tracker.cpp.o
 
 # target to build an object file
 src/trackingmodule/tracker.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/trackingmodule/tracker.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/trackingmodule/tracker.cpp.o
 .PHONY : src/trackingmodule/tracker.cpp.o
 
 src/trackingmodule/tracker.i: src/trackingmodule/tracker.cpp.i
@@ -637,7 +704,7 @@ src/trackingmodule/tracker.i: src/trackingmodule/tracker.cpp.i
 
 # target to preprocess a source file
 src/trackingmodule/tracker.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/trackingmodule/tracker.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/trackingmodule/tracker.cpp.i
 .PHONY : src/trackingmodule/tracker.cpp.i
 
 src/trackingmodule/tracker.s: src/trackingmodule/tracker.cpp.s
@@ -646,7 +713,7 @@ src/trackingmodule/tracker.s: src/trackingmodule/tracker.cpp.s
 
 # target to generate assembly for a file
 src/trackingmodule/tracker.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/trackingmodule/tracker.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/trackingmodule/tracker.cpp.s
 .PHONY : src/trackingmodule/tracker.cpp.s
 
 src/trackingmodule/trackingmodule.o: src/trackingmodule/trackingmodule.cpp.o
@@ -655,7 +722,7 @@ src/trackingmodule/trackingmodule.o: src/trackingmodule/trackingmodule.cpp.o
 
 # target to build an object file
 src/trackingmodule/trackingmodule.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/trackingmodule/trackingmodule.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/trackingmodule/trackingmodule.cpp.o
 .PHONY : src/trackingmodule/trackingmodule.cpp.o
 
 src/trackingmodule/trackingmodule.i: src/trackingmodule/trackingmodule.cpp.i
@@ -664,7 +731,7 @@ src/trackingmodule/trackingmodule.i: src/trackingmodule/trackingmodule.cpp.i
 
 # target to preprocess a source file
 src/trackingmodule/trackingmodule.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/trackingmodule/trackingmodule.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/trackingmodule/trackingmodule.cpp.i
 .PHONY : src/trackingmodule/trackingmodule.cpp.i
 
 src/trackingmodule/trackingmodule.s: src/trackingmodule/trackingmodule.cpp.s
@@ -673,7 +740,7 @@ src/trackingmodule/trackingmodule.s: src/trackingmodule/trackingmodule.cpp.s
 
 # target to generate assembly for a file
 src/trackingmodule/trackingmodule.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/trackingmodule/trackingmodule.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/trackingmodule/trackingmodule.cpp.s
 .PHONY : src/trackingmodule/trackingmodule.cpp.s
 
 src/utilities/logger.o: src/utilities/logger.cpp.o
@@ -682,7 +749,7 @@ src/utilities/logger.o: src/utilities/logger.cpp.o
 
 # target to build an object file
 src/utilities/logger.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/utilities/logger.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/utilities/logger.cpp.o
 .PHONY : src/utilities/logger.cpp.o
 
 src/utilities/logger.i: src/utilities/logger.cpp.i
@@ -691,7 +758,7 @@ src/utilities/logger.i: src/utilities/logger.cpp.i
 
 # target to preprocess a source file
 src/utilities/logger.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/utilities/logger.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/utilities/logger.cpp.i
 .PHONY : src/utilities/logger.cpp.i
 
 src/utilities/logger.s: src/utilities/logger.cpp.s
@@ -700,7 +767,7 @@ src/utilities/logger.s: src/utilities/logger.cpp.s
 
 # target to generate assembly for a file
 src/utilities/logger.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/utilities/logger.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/utilities/logger.cpp.s
 .PHONY : src/utilities/logger.cpp.s
 
 src/visualisationmodule/visualisationmodule.o: src/visualisationmodule/visualisationmodule.cpp.o
@@ -709,7 +776,7 @@ src/visualisationmodule/visualisationmodule.o: src/visualisationmodule/visualisa
 
 # target to build an object file
 src/visualisationmodule/visualisationmodule.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/visualisationmodule/visualisationmodule.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/visualisationmodule/visualisationmodule.cpp.o
 .PHONY : src/visualisationmodule/visualisationmodule.cpp.o
 
 src/visualisationmodule/visualisationmodule.i: src/visualisationmodule/visualisationmodule.cpp.i
@@ -718,7 +785,7 @@ src/visualisationmodule/visualisationmodule.i: src/visualisationmodule/visualisa
 
 # target to preprocess a source file
 src/visualisationmodule/visualisationmodule.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/visualisationmodule/visualisationmodule.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/visualisationmodule/visualisationmodule.cpp.i
 .PHONY : src/visualisationmodule/visualisationmodule.cpp.i
 
 src/visualisationmodule/visualisationmodule.s: src/visualisationmodule/visualisationmodule.cpp.s
@@ -727,7 +794,7 @@ src/visualisationmodule/visualisationmodule.s: src/visualisationmodule/visualisa
 
 # target to generate assembly for a file
 src/visualisationmodule/visualisationmodule.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/visualisationmodule/visualisationmodule.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/visualisationmodule/visualisationmodule.cpp.s
 .PHONY : src/visualisationmodule/visualisationmodule.cpp.s
 
 src/visualisationmodule/visualiser.o: src/visualisationmodule/visualiser.cpp.o
@@ -736,7 +803,7 @@ src/visualisationmodule/visualiser.o: src/visualisationmodule/visualiser.cpp.o
 
 # target to build an object file
 src/visualisationmodule/visualiser.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/visualisationmodule/visualiser.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/visualisationmodule/visualiser.cpp.o
 .PHONY : src/visualisationmodule/visualiser.cpp.o
 
 src/visualisationmodule/visualiser.i: src/visualisationmodule/visualiser.cpp.i
@@ -745,7 +812,7 @@ src/visualisationmodule/visualiser.i: src/visualisationmodule/visualiser.cpp.i
 
 # target to preprocess a source file
 src/visualisationmodule/visualiser.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/visualisationmodule/visualiser.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/visualisationmodule/visualiser.cpp.i
 .PHONY : src/visualisationmodule/visualiser.cpp.i
 
 src/visualisationmodule/visualiser.s: src/visualisationmodule/visualiser.cpp.s
@@ -754,7 +821,7 @@ src/visualisationmodule/visualiser.s: src/visualisationmodule/visualiser.cpp.s
 
 # target to generate assembly for a file
 src/visualisationmodule/visualiser.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/visualisationmodule/visualiser.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/visualisationmodule/visualiser.cpp.s
 .PHONY : src/visualisationmodule/visualiser.cpp.s
 
 src/visualisationmodule/vizvisualiser.o: src/visualisationmodule/vizvisualiser.cpp.o
@@ -763,7 +830,7 @@ src/visualisationmodule/vizvisualiser.o: src/visualisationmodule/vizvisualiser.c
 
 # target to build an object file
 src/visualisationmodule/vizvisualiser.cpp.o:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/visualisationmodule/vizvisualiser.cpp.o
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/visualisationmodule/vizvisualiser.cpp.o
 .PHONY : src/visualisationmodule/vizvisualiser.cpp.o
 
 src/visualisationmodule/vizvisualiser.i: src/visualisationmodule/vizvisualiser.cpp.i
@@ -772,7 +839,7 @@ src/visualisationmodule/vizvisualiser.i: src/visualisationmodule/vizvisualiser.c
 
 # target to preprocess a source file
 src/visualisationmodule/vizvisualiser.cpp.i:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/visualisationmodule/vizvisualiser.cpp.i
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/visualisationmodule/vizvisualiser.cpp.i
 .PHONY : src/visualisationmodule/vizvisualiser.cpp.i
 
 src/visualisationmodule/vizvisualiser.s: src/visualisationmodule/vizvisualiser.cpp.s
@@ -781,7 +848,7 @@ src/visualisationmodule/vizvisualiser.s: src/visualisationmodule/vizvisualiser.c
 
 # target to generate assembly for a file
 src/visualisationmodule/vizvisualiser.cpp.s:
-	$(MAKE) -f CMakeFiles/opencv_slam.dir/build.make CMakeFiles/opencv_slam.dir/src/visualisationmodule/vizvisualiser.cpp.s
+	$(MAKE) -f CMakeFiles/opencv_slam_modules.dir/build.make CMakeFiles/opencv_slam_modules.dir/src/visualisationmodule/vizvisualiser.cpp.s
 .PHONY : src/visualisationmodule/vizvisualiser.cpp.s
 
 # Help Target
@@ -792,11 +859,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... opencv_slam"
-	@echo "... demo_slam"
+	@echo "... charuco_slam"
+	@echo "... demo_charuco_slam"
+	@echo "... opencv_slam_modules"
 	@echo "... samples/demo_slam.o"
 	@echo "... samples/demo_slam.i"
 	@echo "... samples/demo_slam.s"
+	@echo "... src/charucoslamsystem.o"
+	@echo "... src/charucoslamsystem.i"
+	@echo "... src/charucoslamsystem.s"
 	@echo "... src/datastructures/charucoframe.o"
 	@echo "... src/datastructures/charucoframe.i"
 	@echo "... src/datastructures/charucoframe.s"
@@ -845,6 +916,9 @@ help:
 	@echo "... src/representationmodule/representer.o"
 	@echo "... src/representationmodule/representer.i"
 	@echo "... src/representationmodule/representer.s"
+	@echo "... src/slamsystem.o"
+	@echo "... src/slamsystem.i"
+	@echo "... src/slamsystem.s"
 	@echo "... src/trackingmodule/charucotracker.o"
 	@echo "... src/trackingmodule/charucotracker.i"
 	@echo "... src/trackingmodule/charucotracker.s"

@@ -59,7 +59,7 @@ namespace cv {
      * @brief Visualiser
      * This is an abstract class to create various implementations of cameras this SLAM system may support
      */
-    class Visualiser {
+    class Visualiser{
 
     };
   }

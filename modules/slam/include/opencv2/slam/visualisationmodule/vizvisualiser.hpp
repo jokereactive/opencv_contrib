@@ -53,9 +53,6 @@ the use of this software, even if advised of the possibility of such damage.
 #include <opencv2/viz/vizcore.hpp>
 #include <opencv2/viz/widgets.hpp>
 
-//Visualiser
-#include "visualiser.hpp"
-
 //Data Structures
 #include "opencv2/slam/datastructures/affinepose.hpp"
 #include "opencv2/slam/datastructures/charucoframe.hpp"
@@ -64,6 +61,7 @@ the use of this software, even if advised of the possibility of such damage.
 //Modules Needed
 #include <opencv2/slam/representationmodule/keyframegraphrepresenter.hpp>
 #include <opencv2/slam/utilities/logger.hpp>
+#include <opencv2/slam/visualisationmodule/visualiser.hpp>
 
 namespace cv {
   namespace slam {
@@ -71,13 +69,13 @@ namespace cv {
      * @brief Visualiser
      * This is an abstract class to create various implementations of cameras this SLAM system may support
      */
-    class VizVisualiser: public Visualiser {
+    class VizVisualiser {
     public:
         //Constructor
         VizVisualiser();
 
         // Generate Point Cloud
-        Mat cv_cloud();
+        Mat cv_cloud_load();
 
         // Plot Full Trajectory
         void plotTrajectory(KeyFrameGraph* keyFrameGraph, bool VR);

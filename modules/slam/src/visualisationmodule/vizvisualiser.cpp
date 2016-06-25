@@ -41,34 +41,7 @@ the use of this software, even if advised of the possibility of such damage.
 namespace cv {
   namespace slam {
     using namespace std;
-    VizVisualiser::VizVisualiser(){
-
-        // setup Viz
-        myWindow= viz::Viz3d("Coordinate Frame");
-
-        // Add coordinate axes
-        myWindow.showWidget("Coordinate Widget", viz::WCoordinateSystem());
-
-        // Setup Transform Coordinates
-        Vec3f cam_pos(1.0f,0.0f,0.0f), cam_focal_point(0.0f,0.0f,0.0f), cam_y_dir(0.0f,-1.0f,0.0f);
-        cam_pose = viz::makeCameraPose(cam_pos, cam_focal_point, cam_y_dir);
-        transform = viz::makeTransformToGlobal(Vec3f(0.0f,-1.0f,0.0f), Vec3f(-1.0f,0.0f,0.0f), Vec3f(0.0f,0.0f,-1.0f), cam_pos);
-
-        // Setup and Place the Bunny
-        bunny_cloud = cvcloud_load();
-        viz::WCloud cloud_widget(bunny_cloud, viz::Color::green());
-
-        // Pose of the widget in camera frame
-        cloud_pose = Affine3f().translate(Vec3f(-1.0f,-1.0f,2.0f));
-
-        // Pose of the widget in global frame
-        cloud_pose_global = transform * cloud_pose;
-
-        myWindow.showWidget("bunny", cloud_widget, cloud_pose_global);
-
-    }
-
-    Mat VizVisualiser::cv_cloud(){
+    Mat VizVisualiser::cv_cloud_load(){
         Mat cloud(1, 1889, CV_32FC3);
         ifstream ifs("bunny.ply");
 
@@ -85,19 +58,47 @@ namespace cv {
         return cloud;
     }
 
+    VizVisualiser::VizVisualiser(){
+
+        // setup Viz
+        myWindow= viz::Viz3d("Coordinate Frame");
+
+        // Add coordinate axes
+        myWindow.showWidget("Coordinate Widget", viz::WCoordinateSystem());
+
+        // Setup Transform Coordinates
+        Vec3f cam_pos(1.0f,0.0f,0.0f), cam_focal_point(0.0f,0.0f,0.0f), cam_y_dir(0.0f,-1.0f,0.0f);
+        cam_pose = viz::makeCameraPose(cam_pos, cam_focal_point, cam_y_dir);
+        transform = viz::makeTransformToGlobal(Vec3f(0.0f,-1.0f,0.0f), Vec3f(-1.0f,0.0f,0.0f), Vec3f(0.0f,0.0f,-1.0f), cam_pos);
+
+        // Setup and Place the Bunny
+        bunny_cloud = cv_cloud_load();
+        viz::WCloud cloud_widget(bunny_cloud, viz::Color::green());
+
+        // Pose of the widget in camera frame
+        cloud_pose = Affine3f().translate(Vec3f(-1.0f,-1.0f,2.0f));
+
+        // Pose of the widget in global frame
+        cloud_pose_global = transform * cloud_pose;
+
+        myWindow.showWidget("bunny", cloud_widget, cloud_pose_global);
+
+    }
+
+
     void VizVisualiser::plotTrajectory(KeyFrameGraph* keyFrameGraph, bool VR){
-        this->posesReceived.clear;
+        this->posesReceived.clear();
         vector<Node*> Nodes = keyFrameGraph->getNodes();
 
         for(int i=0;i<Nodes.size();i++){
-            posesReceived.push_back(Nodes[i]->getPose().getPose());
+            posesReceived.push_back(Nodes[i]->getFrame()->getPose().getPose());
           }
 
         myWindow.showWidget("Frustums", cv::viz::WTrajectoryFrustums(posesReceived, Vec2d(0.78, 0.78), 0.15));
         myWindow.showWidget("Trajectory", cv::viz::WTrajectory(posesReceived, cv::viz::WTrajectory::PATH, 0.2, cv::viz::Color::brown()));
 
         if(VR){
-            myWindow.setViewerPose(posesReceived.end());
+            myWindow.setViewerPose(*posesReceived.end());
           }
 
         myWindow.spinOnce(1,true);

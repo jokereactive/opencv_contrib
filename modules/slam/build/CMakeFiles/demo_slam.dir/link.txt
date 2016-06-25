@@ -1,1 +1,1 @@
-/usr/bin/c++      CMakeFiles/demo_slam.dir/samples/demo_slam.cpp.o  -o demo_slam -rdynamic libopencv_slam.a 
+/usr/bin/c++      CMakeFiles/demo_slam.dir/samples/demo_slam.cpp.o CMakeFiles/demo_slam.dir/src/charucoslamsystem.cpp.o CMakeFiles/demo_slam.dir/src/slamsystem.cpp.o  -o demo_slam -rdynamic -lopencv_slam 

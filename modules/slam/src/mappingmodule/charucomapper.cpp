@@ -35,7 +35,7 @@ and on any theory of liability, whether in contract, strict liability,
 or tort (including negligence or otherwise) arising in any way out of
 the use of this software, even if advised of the possibility of such damage.
 */
-s
+
 #include <opencv2/slam/mappingmodule/mappingmodule.hpp>
 
 namespace cv {
@@ -45,17 +45,17 @@ namespace cv {
     void CharucoMapper::mapFrame(CharucoFrame* charucoFrame, KeyFrameGraph* KeyFrameGraph){
       //In last N frames find Mappoints not present in the last frames and which are unmapped
       vector<CharucoFrame*> matchedFrames = KeyFrameGraph->getFrameMatches(charucoFrame);
-      vector<CharucoMapPoints*> uncommonMapPoints;
-      vector<CharucoMapPoints*> uncommonMapPoints_temp;
+      vector<CharucoMapPoint*> uncommonMapPoints;
+      vector<CharucoMapPoint*> uncommonMapPoints_temp;
       for(int i=0;i<matchedFrames.size();i++){
           uncommonMapPoints_temp = charucoFrame->getUncommonMapPoints(matchedFrames[i]);
           for(int j=0;j<uncommonMapPoints_temp.size();j++){
-              if(!uncommonMapPoints_temp[j].isMapped())
+              if(!uncommonMapPoints_temp[j]->getMapped())
                 uncommonMapPoints.push_back(uncommonMapPoints_temp[j]);
           }
       }
       for(int i=0;i<uncommonMapPoints.size();i++){
-          uncommonMapPoints[i].performMapping(charucoFrame);
+          uncommonMapPoints[i]->performMapping(charucoFrame);
         }
     }
 

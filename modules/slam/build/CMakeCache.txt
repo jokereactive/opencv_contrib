@@ -162,7 +162,13 @@ OpenCV_SLAM_BINARY_DIR:STATIC=/home/sarthak/GSOC/opencv_contrib/modules/slam/bui
 OpenCV_SLAM_SOURCE_DIR:STATIC=/home/sarthak/GSOC/opencv_contrib/modules/slam
 
 //Dependencies for target
+charuco_slam_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
 opencv_slam_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
+opencv_slam_modules_LIB_DEPENDS:STATIC=
 
 
 ########################

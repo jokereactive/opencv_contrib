@@ -47,15 +47,17 @@ the use of this software, even if advised of the possibility of such damage.
 #include <iostream>
 #include <fstream>
 
+#include "opencv2/slam/inputmodule/monocamera.hpp"
+#include "opencv2/slam/trackingmodule/charucotracker.hpp"
+#include "opencv2/slam/mappingmodule/charucomapper.hpp"
+#include "opencv2/slam/visualisationmodule/vizvisualiser.hpp"
+#include "opencv2/slam/representationmodule/keyframegraphrepresenter.hpp"
+
 //Slam Related
 #include "opencv2/slam/slamsystem.hpp"
-
 //Data Structures
-#include "opencv2/slam/datastructures/affinepose.hpp"
-#include "opencv2/slam/datastructures/charucoframe.hpp"
-#include "opencv2/slam/datastructures/charucomappoint.hpp"
 #include <opencv2/slam/utilities/logger.hpp>
-#include <opencv2/slam/trackingmodule/charucotracker.hpp>
+
 
 
 namespace cv {
@@ -64,14 +66,7 @@ namespace cv {
      * @brief CharucoSlamSystem
      * This is an abstract class to create various implementations of cameras this SLAM system may support
      */
-    class KeyFrameGraph;
-    class CharucoMapper;
-    class CharucoTracker;
-    class VizVisualiser;
-    class MonoCamera;
-    class MonoDataset;
-
-    class CharucoSlamSystem: public SlamSystem{
+    class CharucoSlamSystem: public SlamSystem {
       private:
         KeyFrameGraph* keyFrameGraph;
         CharucoMapper* charucoMapper;

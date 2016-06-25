@@ -46,27 +46,31 @@ the use of this software, even if advised of the possibility of such damage.
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <string>
 
 #include <opencv2/aruco.hpp>
+#include <opencv2/aruco/charuco.hpp>
 
 // Data Structures
+#include <opencv2/slam/trackingmodule/tracker.hpp>
 #include <opencv2/slam/datastructures/charucoframe.hpp>
 #include <opencv2/slam/inputmodule/monocamera.hpp>
-#include <opencv2/slam/trackingmodule/tracker.hpp>
-#include <string>
+#include <opencv2/slam/datastructures/affinepose.hpp>
+#include <opencv2/slam/datastructures/charucomappoint.hpp>
 #include <opencv2/slam/utilities/logger.hpp>
+#include <opencv2/slam/representationmodule/keyframegraphrepresenter.hpp>
+
 
 namespace cv {
   namespace slam {
-    class KeyFrameGraph;
     class MonoCamera;
     /**
      * @brief CharucoTracker
      * This is an abstract class to create various implementations of mappers this SLAM system may support
      */
-    class CharucoTracker: public Tracker {
+    class CharucoTracker: public Tracker{
     public:
-      CharucoTracker(int lastN, std::string configPath, MonoCamera &monoCamera);
+      CharucoTracker(int lastN, std::string configPath, MonoCamera *monoCamera);
 
       // Aruco Related Funtions
       bool readDetectorParameters(std::string filename, Ptr<aruco::DetectorParameters> &params);

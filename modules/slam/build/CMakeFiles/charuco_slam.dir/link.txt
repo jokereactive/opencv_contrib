@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcharuco_slam.a  CMakeFiles/charuco_slam.dir/src/charucoslamsystem.cpp.o
+/usr/bin/ranlib libcharuco_slam.a

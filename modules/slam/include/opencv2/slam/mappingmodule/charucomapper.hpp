@@ -50,11 +50,16 @@ the use of this software, even if advised of the possibility of such damage.
 #include <opencv2/aruco.hpp>
 
 // Data Structures
-#include <opencv2/slam/datastructures/charucoframe.hpp>
+
+
 #include <opencv2/slam/datastructures/affinepose.hpp>
+#include <opencv2/slam/datastructures/charucomappoint.hpp>
+#include <opencv2/slam/datastructures/charucoframe.hpp>
 #include <opencv2/slam/representationmodule/keyframegraphrepresenter.hpp>
+
 #include <opencv2/slam/utilities/logger.hpp>
 
+#include <opencv2/slam/mappingmodule/mapper.hpp>
 
 namespace cv {
   namespace slam {
@@ -62,6 +67,7 @@ namespace cv {
      * @brief CharucoMapper
      * This is an abstract class to create various implementations of mappers this SLAM system may support
      */
+    class CharucoMapPoint;
     class CharucoMapper: public Mapper {
     public:
         CharucoMapper(int lastN):Mapper(lastN){

@@ -95,7 +95,7 @@ namespace cv {
             this->id = charucoFrame->getId();
         }
 
-        void addContraint(Node *v, AffinePose pose)
+        void addConstraint(Node *v, AffinePose pose)
         {
             Constraint newConstraint(this, v, pose);
             constraints.push_back(newConstraint);
@@ -136,6 +136,10 @@ namespace cv {
         std::vector<Node*> getNodeMatches(CharucoFrame* charucoFrame);
         Node* getNodeById(unsigned long int id);
         CharucoFrame* getFrameById(unsigned long int id);
+        std::vector<Node*> getNodes(){
+          return nodes;
+        }
+
     private:
         std::vector<Node*> nodes;
 

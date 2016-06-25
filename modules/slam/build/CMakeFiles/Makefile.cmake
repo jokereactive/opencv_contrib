@@ -45,6 +45,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/opencv_slam.dir/DependInfo.cmake"
-  "CMakeFiles/demo_slam.dir/DependInfo.cmake"
+  "CMakeFiles/charuco_slam.dir/DependInfo.cmake"
+  "CMakeFiles/demo_charuco_slam.dir/DependInfo.cmake"
+  "CMakeFiles/opencv_slam_modules.dir/DependInfo.cmake"
   )

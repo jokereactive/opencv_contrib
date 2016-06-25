@@ -41,6 +41,7 @@ the use of this software, even if advised of the possibility of such damage.
 namespace cv {
  namespace slam {
    using namespace std;
+   class Visualiser;
   enum VISUALISER { VIZ};
    Visualiser* VisualisationModule::createVisualiser(int visualiserType){
      switch(visualiserType){
